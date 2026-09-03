@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dvole Labs</title>
+    <script>
+      // Match the personal site: honour saved or OS theme before paint.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t) {
+            t = window.matchMedia
+              && window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark" : "light";
+          }
+          if (t === "dark") document.documentElement.dataset.theme = "dark";
+        } catch (e) {}
+      })();
+    </script>
+    <style>
+      :root {
+        --bg: #fdfbf7;
+        --text: #2d2d2d;
+        --heading: #c47545;
+        --em: #7a5530;
+        --muted-warm: #8b6540;
+        --hr: #e8d5c8;
+        --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
+      }
+      [data-theme="dark"] {
+        --bg: #16110e;
+        --text: #e6dbc6;
+        --heading: #ee9560;
+        --em: #c4a380;
+        --muted-warm: #b89770;
+        --hr: #3a2e25;
+      }
+
+      html { height: 100%; }
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 24px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-serif);
+        color: var(--text);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-variant-numeric: oldstyle-nums proportional-nums;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .wrap { text-align: center; }
+
+      h1 {
+        color: var(--heading);
+        font-size: 3.1em;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        line-height: 1.12;
+        margin: 0;
+      }
+
+      .divider {
+        width: 64px;
+        height: 0;
+        border: none;
+        border-top: 1px solid var(--hr);
+        margin: 1.5em auto;
+      }
+
+      .soon {
+        color: var(--muted-warm);
+        font-style: italic;
+        font-size: 1.15em;
+        margin: 0;
+      }
+
+      @media (max-width: 560px) {
+        h1 { font-size: 2.3em; }
+      }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Dvole Labs</h1>
+        <hr class="divider">
+        <p class="soon">Coming soon&hellip;</p>
+    </div>
+</body>
+</html>
