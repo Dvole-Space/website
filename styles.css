@@ -1,0 +1,116 @@
+:root {
+  --bg: #fdfbf7;
+  --text: #2d2d2d;
+  --heading: #c47545;
+  --heading-2: #d97745;
+  --muted: #8b6540;
+  --link: #d97745;
+  --hr: #e8d5c8;
+  --border-soft: #f4e5dc;
+  --footer-text: #8a7a68;
+  --hover-tint: #f7efe7;
+  --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg: #16110e;
+  --text: #e6dbc6;
+  --heading: #ee9560;
+  --heading-2: #f5a070;
+  --muted: #b89770;
+  --link: #f5a070;
+  --hr: #3a2e25;
+  --border-soft: #2d241c;
+  --footer-text: #9a8970;
+  --hover-tint: #20180f;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 22px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.site-title {
+  color: var(--heading);
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.35em;
+}
+.site-title a {
+  color: inherit;
+  border-bottom: none;
+}
+
+.topnav {
+  font-family: var(--font-sans);
+  font-size: 0.82em;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+.topnav a {
+  color: var(--muted);
+  border-bottom: none;
+  padding: 0 0.15em;
+}
+.topnav a:hover {
+  color: var(--link);
+  border-bottom: 1px solid var(--link);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--hr);
+  margin: 1.6em 0;
+}
+
+main { margin-top: 1.4em; }
+
+h2 {
+  color: var(--heading-2);
+  font-size: 1.5em;
+  margin: 0 0 0.6em;
+  font-weight: 600;
+}
+
+p { text-wrap: pretty; margin: 0 0 1em; }
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-soft);
+  transition: border-color 0.2s;
+}
+a:hover { border-bottom-color: var(--link); }
+
+.coming {
+  color: var(--muted);
+  font-style: italic;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid var(--hr);
+  font-family: var(--font-sans);
+  font-size: 0.78em;
+  color: var(--footer-text);
+}
+
+@media (max-width: 560px) {
+  body { margin: 24px auto; font-size: 17px; }
+  .site-title { font-size: 1.7em; }
+}
