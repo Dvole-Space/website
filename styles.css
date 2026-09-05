@@ -104,7 +104,7 @@ a:hover { border-bottom-color: var(--link); }
 .section-note {
   color: var(--muted);
   font-size: 0.95em;
-  margin: 0 0 1em;
+  margin: 0.8em 0 0;
 }
 
 .crumb {
@@ -133,47 +133,8 @@ a:hover { border-bottom-color: var(--link); }
 .project-links li { margin: 0 0 0.55em; }
 
 /* Projects listing (projects.html) */
-.project-group { margin: 0 0 3.2em; }
-.project-group:last-child { margin-bottom: 0; }
-
-.group-label {
-  font-family: var(--font-sans);
-  font-size: 0.72em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--muted);
-  margin: 0 0 0.6em;
-}
-
-.group-note {
-  color: var(--muted);
-  font-size: 0.85em;
-  line-height: 1.55;
-  max-width: 46ch;
-  margin: 0 0 1.6em;
-}
-
-.project-list { list-style: none; padding: 0; margin: 0; }
-.project-list li { margin: 0 0 1em; }
-.project-list li:last-child { margin: 0; }
-
-.project-name {
-  font-size: 1.3em;
-  font-weight: 600;
-  color: var(--heading);
-  border-bottom: none;
-  line-height: 1.35;
-  display: inline-block;
-}
-.project-name:hover { color: var(--heading); border-bottom: 1px solid var(--heading); }
-
-.group-empty {
-  color: var(--muted);
-  font-style: italic;
-  font-size: 0.95em;
-  margin: 0;
-}
+.proj-section { margin: 0 0 2.8em; }
+.proj-section:last-child { margin-bottom: 0; }
 
 footer {
   margin-top: 3em;
