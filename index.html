@@ -12,9 +12,9 @@
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">Dvole</a>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="masthead-title" href="index.html">Dvole</a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="index.html" aria-current="page">About</a></li>
@@ -22,18 +22,12 @@
           <li><a href="programmes.html">Research Programmes</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
-        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
-          <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/>
-        </svg>
-      </button>
     </div>
   </header>
 
   <main id="content" class="page" tabindex="-1">
-    <header class="page-head page-head--label">
-      <h1>About</h1>
+    <header class="page-head">
+      <h1 class="visually-hidden">About</h1>
     </header>
 
     <div class="prose">
@@ -59,5 +53,11 @@
       <p>The central instinct is to look at a complicated system and ask: <strong>what is accidental, what is structural, what can be abstracted away, what survives when the setting changes, and what becomes possible once we understand that structure?</strong></p>
     </div>
   </main>
+
+  <footer class="colophon">
+    <div class="colophon-inner">
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">Theme</button>
+    </div>
+  </footer>
 </body>
 </html>

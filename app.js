@@ -23,6 +23,7 @@
 
     function label() {
       var next = currentTheme() === "dark" ? "light" : "dark";
+      button.textContent = next.charAt(0).toUpperCase() + next.slice(1) + " theme";
       button.setAttribute("aria-label", "Switch to " + next + " theme");
     }
 
@@ -43,12 +44,11 @@
     var sections = links.map(function (a) {
       return document.getElementById(a.getAttribute("href").slice(1));
     });
-    var header = document.querySelector(".site-header");
     var ticking = false;
 
     function update() {
       ticking = false;
-      var line = (header ? header.offsetHeight : 0) + 48;
+      var line = Math.min(160, window.innerHeight * 0.3);
       var active = -1;
       for (var i = 0; i < sections.length; i++) {
         if (sections[i] && sections[i].getBoundingClientRect().top <= line) active = i;
