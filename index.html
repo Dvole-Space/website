@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dvole</title>
   <meta name="description" content="Dvole is an independent research initiative focused on foundational questions around intelligent systems, interaction, knowledge, mathematical structure, and the ways increasingly capable AI systems are being integrated into science and society.">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <script src="app.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-about">
   <a class="skip-link" href="#content">Skip to content</a>
 
   <header class="masthead">
@@ -41,7 +41,24 @@
       <p>The theory should eventually come back to the system.</p>
       <p>If a mathematical framework can tell us how to construct a better protocol, what guarantees are possible, which assumptions those guarantees depend on, or which design choices matter in a particular environment, then that is part of the research as well. And if the real system breaks the abstraction, the abstraction should change.</p>
       <p>So the research is naturally cyclic:</p>
-      <p class="research-flow"><span class="step">observation</span> <span class="step"><span class="arrow">→</span> structural explanation</span> <span class="step"><span class="arrow">→</span> mathematical abstraction</span> <span class="step"><span class="arrow">→</span> general theory</span> <span class="step"><span class="arrow">→</span> practical instantiation</span> <span class="step"><span class="arrow">→</span> new observation.</span></p>
+      <div class="cycle reveal">
+        <svg class="cycle-drawing" viewBox="0 0 720 430" aria-hidden="true" focusable="false">
+          <path class="cycle-line" pathLength="1" d="M165.2 134.0 L172.7 127.5 L180.7 121.3 L189.3 115.3 L198.4 109.6 L208.0 104.2 L218.1 99.1 L228.6 94.3 L239.6 89.8 L251.0 85.7 L262.7 81.9 L274.7 78.5 L287.1 75.5 L299.7 72.8 L312.5 70.6 L325.6 68.8 L338.8 67.3 L352.1 66.3 L365.5 65.7 L379.0 65.6 L392.5 65.8 L406.0 66.5 L419.4 67.6 L432.7 69.1 L445.9 71.1 L458.9 73.4 L471.7 76.2 L484.3 79.4 L496.6 83.0 L508.6 86.9 L520.2 91.3 L531.5 96.0 L542.4 101.0 L552.8 106.4 L562.7 112.2 L572.2 118.2 L581.1 124.6 L589.4 131.2 L597.2 138.1 L604.4 145.2 L611.0 152.6 L616.9 160.1 L622.1 167.9 L626.7 175.8 L630.6 183.9 L633.8 192.1 L636.3 200.4 L638.0 208.8 L639.0 217.2 L639.3 225.6 L638.8 234.1 L637.6 242.6 L635.7 251.0 L633.0 259.3 L629.6 267.6 L625.4 275.8 L620.6 283.8 L615.0 291.7 L608.8 299.4 L601.9 306.9 L594.3 314.2 L586.1 321.3 L577.3 328.1 L567.8 334.6 L557.8 340.9 L547.3 346.8 L536.2 352.4 L524.7 357.6 L512.7 362.5 L500.2 367.0 L487.4 371.1 L474.2 374.8 L460.7 378.0 L446.9 380.9 L432.8 383.3 L418.6 385.3 L404.1 386.9 L389.6 387.9 L374.9 388.6 L360.2 388.7 L345.4 388.4 L330.7 387.6 L316.1 386.4 L301.5 384.7 L287.2 382.6 L273.0 380.0 L259.0 376.9 L245.3 373.4 L231.9 369.5 L218.8 365.2 L206.1 360.4 L193.8 355.3 L182.0 349.7 L170.7 343.8 L159.9 337.6 L149.6 331.0 L139.9 324.0 L130.8 316.8 L122.4 309.3 L114.6 301.5 L107.4 293.5 L101.0 285.2 L95.3 276.7 L90.4 268.1 L86.2 259.3 L82.7 250.4 L80.1 241.4 L78.2 232.2 L77.2 223.1 L76.9 213.9 L77.4 204.6 L78.8 195.4 L80.9 186.3 L83.9 177.2 L85.1 174.2"/>
+          <path class="cycle-tail" d="M85.1 174.2 L89.1 165.2 L93.9 156.4 L99.4 147.7 L105.7 139.2 L112.8 130.9 L120.6 122.8 L129.1 115.0 L132.1 112.4"/>
+          <path class="cycle-head" d="M-6 -4.5 L0 0 L-6 4.5" transform="translate(282.9 76.4) rotate(-13.3)"/>
+          <path class="cycle-head" d="M-6 -4.5 L0 0 L-6 4.5" transform="translate(564.3 113.2) rotate(31.9)"/>
+          <path class="cycle-head" d="M-6 -4.5 L0 0 L-6 4.5" transform="translate(625.4 275.8) rotate(119.4)"/>
+          <path class="cycle-head" d="M-6 -4.5 L0 0 L-6 4.5" transform="translate(394.4 387.6) rotate(176.2)"/>
+          <path class="cycle-head" d="M-6 -4.5 L0 0 L-6 4.5" transform="translate(102.0 286.6) rotate(-126.3)"/>
+          <circle class="node node-f" cx="165.2" cy="134.0" r="4.5"/>
+          <circle class="node" cx="437.1" cy="69.7" r="4.5"/>
+          <circle class="node node-a" cx="633.8" cy="192.1" r="4.5"/>
+          <circle class="node node-a" cx="547.3" cy="346.8" r="4.5"/>
+          <circle class="node" cx="227.5" cy="368.1" r="4.5"/>
+          <circle class="node node-f" cx="85.1" cy="174.2" r="4.5"/>
+        </svg>
+        <p class="research-flow cycle-steps"><span class="step c1"><span class="term">observation</span></span> <span class="step c2"><span class="arrow">→</span> <span class="term">structural explanation</span></span> <span class="step c3"><span class="arrow">→</span> <span class="term">mathematical abstraction</span></span> <span class="step c4"><span class="arrow">→</span> <span class="term">general theory</span></span> <span class="step c5"><span class="arrow">→</span> <span class="term">practical instantiation</span></span> <span class="step c6"><span class="arrow">→</span> <span class="term">new observation</span><span class="stop">.</span></span></p>
+      </div>
       <p>There is also a broader question we care about: what happens when these systems begin to become part of the infrastructure through which science, research, institutions, and eventually large parts of society operate?</p>
       <p>A lot of discussion around AI compresses very different things into a few broad words like <em>capability</em>, <em>safety</em>, or <em>risk</em>. We are interested in understanding those terms much more precisely. What does a new capability actually change? What does a safety failure tell us about the underlying system? Which failures are local engineering problems, which expose something structural, and which should genuinely change how a system is deployed or governed?</p>
       <p>The same applies to scientific research. If AI systems increasingly participate in mathematical reasoning, experimentation, simulation, literature analysis, software development, or scientific discovery, then the interesting question is not only whether they can perform those tasks. It is also how research itself should change around them.</p>

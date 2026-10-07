@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research Programmes · Dvole</title>
   <meta name="description" content="Our research is organized around a small number of programmes rather than isolated projects.">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <script src="app.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-programmes">
   <a class="skip-link" href="#content">Skip to content</a>
 
   <header class="masthead">
@@ -43,6 +43,27 @@
       <p>Our research is organized around a small number of programmes rather than isolated projects.</p>
       <p>The programmes are meant to be broad enough to support several different questions over time, while still having a clear mathematical and conceptual centre. Individual projects may move between programmes, and some of the most interesting work will probably appear exactly where two of them overlap.</p>
 
+      <div class="programme-map reveal">
+        <svg class="map-drawing" viewBox="0 0 800 430" aria-hidden="true" focusable="false">
+          <path class="map-edge" d="M215 190 Q312.1 103.5 440 80"/>
+          <path class="map-edge" d="M440 80 Q544.8 131.9 600 235"/>
+          <path class="map-edge" d="M600 235 Q483.9 313.1 345 330"/>
+          <path class="map-edge" d="M345 330 Q254.8 283.4 215 190"/>
+          <path class="map-edge" d="M215 190 Q403.9 243.3 600 235"/>
+          <path class="map-edge" d="M440 80 Q367.5 195.5 345 330"/>
+          <circle class="map-node p1" cx="215" cy="190" r="5"/>
+          <circle class="map-node p2" cx="440" cy="80" r="5"/>
+          <circle class="map-node p3" cx="600" cy="235" r="5"/>
+          <circle class="map-node p4" cx="345" cy="330" r="5"/>
+        </svg>
+        <ol>
+          <li class="p1"><a href="#information-interaction-and-control-in-multi-agent-systems">Information, Interaction, and Control in Multi-Agent Systems</a></li>
+          <li class="p2"><a href="#abstraction-representation-and-epistemic-structure">Abstraction, Representation, and Epistemic Structure</a></li>
+          <li class="p3"><a href="#ai-and-the-structure-of-scientific-research">AI and the Structure of Scientific Research</a></li>
+          <li class="p4"><a href="#mathematical-structures-across-physical-and-intelligent-systems">Mathematical Structures Across Physical and Intelligent Systems</a></li>
+        </ol>
+      </div>
+
       <section id="information-interaction-and-control-in-multi-agent-systems" aria-labelledby="information-interaction-and-control-in-multi-agent-systems-heading">
         <h2 id="information-interaction-and-control-in-multi-agent-systems-heading">Information, Interaction, and Control in Multi-Agent Systems</h2>
         <p>Multi-agent systems become interesting precisely because properties of individual agents do not necessarily survive interaction.</p>
@@ -53,7 +74,7 @@
         <p>This naturally brings together information theory, probability, game theory, formal epistemology, protocol design, and questions of compositional safety.</p>
         <p>We are particularly interested in trade-offs that system designers eventually have to confront directly: utility against confidentiality, coordination against information control, capability against oversight, and local guarantees against emergent system-level behaviour.</p>
         <p>The broader aim is to understand these trade-offs well enough that they can eventually become design principles rather than accidental properties of a particular system.</p>
-        <p class="research-flow"><span class="step">information flow</span> <span class="step"><span class="arrow">→</span> interaction</span> <span class="step"><span class="arrow">→</span> incentives</span> <span class="step"><span class="arrow">→</span> system-level behaviour</span> <span class="step"><span class="arrow">→</span> formal control</span></p>
+        <p class="research-flow reveal"><span class="step"><span class="term">information flow</span></span> <span class="step"><span class="arrow">→</span> <span class="term">interaction</span></span> <span class="step"><span class="arrow">→</span> <span class="term">incentives</span></span> <span class="step"><span class="arrow">→</span> <span class="term">system-level behaviour</span></span> <span class="step"><span class="arrow">→</span> <span class="term">formal control</span></span></p>
       </section>
 
       <section id="abstraction-representation-and-epistemic-structure" aria-labelledby="abstraction-representation-and-epistemic-structure-heading">
@@ -66,7 +87,7 @@
         <p>If two systems appear identical under every observation available to an agent, what exactly has the agent learned about them? When is an ignored distinction genuinely irrelevant, and when does a new context force it to return? Can an abstract object be reconstructed from several partial representations rather than assumed beforehand?</p>
         <p>These questions can be approached from several directions. Formal epistemology and epistemic logic provide languages for knowledge and observation. Causal abstraction gives ways of relating descriptions at different levels. Automata theory gives precise models of systems with limited information. Category theory provides tools for reasoning about structure and transformations, while type theory and homotopy type theory offer different ways of thinking about identity, equivalence, and the construction of mathematical objects.</p>
         <p>The aim is not to force all of these tools into one framework. It is to use whichever mathematical language makes the underlying question precise.</p>
-        <p class="research-flow"><span class="step">observation</span> <span class="step"><span class="arrow">→</span> representation</span> <span class="step"><span class="arrow">→</span> inference</span> <span class="step"><span class="arrow">→</span> equivalence</span> <span class="step"><span class="arrow">→</span> abstraction</span> <span class="step"><span class="arrow">→</span> knowledge</span></p>
+        <p class="research-flow reveal"><span class="step"><span class="term">observation</span></span> <span class="step"><span class="arrow">→</span> <span class="term">representation</span></span> <span class="step"><span class="arrow">→</span> <span class="term">inference</span></span> <span class="step"><span class="arrow">→</span> <span class="term">equivalence</span></span> <span class="step"><span class="arrow">→</span> <span class="term">abstraction</span></span> <span class="step"><span class="arrow">→</span> <span class="term">knowledge</span></span></p>
       </section>
 
       <section id="ai-and-the-structure-of-scientific-research" aria-labelledby="ai-and-the-structure-of-scientific-research-heading">
@@ -80,7 +101,7 @@
         <p>Research groups, laboratories, universities, funding structures, publication systems, and scientific collaborations were developed around particular assumptions about how knowledge is produced and how difficult different forms of intellectual work are. Increasingly capable AI systems may alter some of those assumptions.</p>
         <p>Understanding that transition is also necessary for thinking clearly about societal integration. Terms such as <em>capability</em>, <em>safety failure</em>, and <em>risk</em> are often used at a much higher level than the technical phenomena they refer to. We are interested in understanding what particular developments actually imply before reasoning about how institutions, scientific infrastructure, or policy should respond to them.</p>
         <p>In this sense, policy is downstream of understanding the systems and the structures into which they are being introduced.</p>
-        <p class="research-flow"><span class="step">AI capability</span> <span class="step"><span class="arrow">→</span> scientific practice</span> <span class="step"><span class="arrow">→</span> knowledge production</span> <span class="step"><span class="arrow">→</span> research infrastructure</span> <span class="step"><span class="arrow">→</span> institutional response</span></p>
+        <p class="research-flow reveal"><span class="step"><span class="term">AI capability</span></span> <span class="step"><span class="arrow">→</span> <span class="term">scientific practice</span></span> <span class="step"><span class="arrow">→</span> <span class="term">knowledge production</span></span> <span class="step"><span class="arrow">→</span> <span class="term">research infrastructure</span></span> <span class="step"><span class="arrow">→</span> <span class="term">institutional response</span></span></p>
       </section>
 
       <section id="mathematical-structures-across-physical-and-intelligent-systems" aria-labelledby="mathematical-structures-across-physical-and-intelligent-systems-heading">
@@ -93,7 +114,7 @@
         <p>The programme is therefore concerned with mathematical structures that make relationships between complicated systems easier to state, compare, and reason about.</p>
         <p>Depending on the problem, this may involve geometry, topology, dynamical systems, probability, algebra, category theory, type theory, mathematical physics, or other structural mathematics.</p>
         <p>The central motivation is not abstraction for its own sake. It is the possibility that the right mathematical formulation can reveal constraints and relationships that remain hidden when a problem is studied only through its individual components.</p>
-        <p class="research-flow"><span class="step">particular realizations</span> <span class="step"><span class="arrow">→</span> structural relations</span> <span class="step"><span class="arrow">→</span> mathematical constraints</span> <span class="step"><span class="arrow">→</span> new realizations</span></p>
+        <p class="research-flow reveal"><span class="step"><span class="term">particular realizations</span></span> <span class="step"><span class="arrow">→</span> <span class="term">structural relations</span></span> <span class="step"><span class="arrow">→</span> <span class="term">mathematical constraints</span></span> <span class="step"><span class="arrow">→</span> <span class="term">new realizations</span></span></p>
       </section>
     </div>
   </main>

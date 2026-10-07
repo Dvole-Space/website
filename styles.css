@@ -1,16 +1,34 @@
-/* Dvole — cream paper, walnut ink, faded olive. */
+/* Dvole — warm ivory, dark ink, aubergine and oxidized teal.
+   Aubergine marks ideas (questions, the current page, links);
+   teal marks relations (arrows, flows, diagram lines). */
 
 :root {
-  --paper: #F7F2E8;
-  --paper-deep: #F0E9DD;
-  --ink: #39322C;
-  --ink-strong: #2C2722;
-  --muted: #756C62;
-  --accent: #66705A;
-  --accent-dark: #525B49;
-  --accent-soft: #E1E3D7;
-  --rule: #DED5C8;
-  --rule-soft: #E9E1D6;
+  --bg: #F6F0E7;
+  --surface: #EEE5DA;
+  --surface-soft: #F3EBE2;
+
+  --text: #302A28;
+  --text-strong: #272321;
+  --muted: #746A64;
+
+  --accent-primary: #6F4E63;
+  --accent-primary-hover: #5C4052;
+  --accent-primary-soft: #E5D7DE;
+
+  --accent-secondary: #5F7774;
+  --accent-secondary-hover: #4E6663;
+  --accent-secondary-soft: #D7E0DD;
+
+  --rule: #D9CEC3;
+  --rule-soft: #E6DDD3;
+
+  /* Programme pigments: numerals, marks and diagram fragments only. */
+  --p1: #8C5755;
+  --p2: #6F4E63;
+  --p3: #557270;
+  --p4: #636B7B;
+
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .22 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
   --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
   --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -20,37 +38,33 @@
   --margin-gap: 3.5rem;
   --gutter: 1.375rem;
   --pad-l: var(--gutter);
+  /* How far a diagram or question may reach past the text column. */
+  --reach: 0rem;
 
   color-scheme: light;
 }
 
-/* Dark: follows the OS unless a theme has been chosen explicitly. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #211E1A;
-    --paper-deep: #29251F;
-    --ink: #ECE5DA;
-    --ink-strong: #F5EEE3;
-    --muted: #AAA095;
-    --accent: #AEB69A;
-    --accent-dark: #C0C7AA;
-    --accent-soft: #34372E;
-    --rule: #403A33;
-    --rule-soft: #342F2A;
-    color-scheme: dark;
-  }
-}
+/* Dark: only when chosen with the theme control. Light is the default. */
 :root[data-theme="dark"] {
-  --paper: #211E1A;
-  --paper-deep: #29251F;
-  --ink: #ECE5DA;
-  --ink-strong: #F5EEE3;
-  --muted: #AAA095;
-  --accent: #AEB69A;
-  --accent-dark: #C0C7AA;
-  --accent-soft: #34372E;
-  --rule: #403A33;
-  --rule-soft: #342F2A;
+  --bg: #201B1E;
+  --surface: #292227;
+  --surface-soft: #252024;
+  --text: #EEE6E1;
+  --text-strong: #F5EDEA;
+  --muted: #ADA19B;
+  --accent-primary: #C59AAF;
+  --accent-primary-hover: #D3ABBD;
+  --accent-primary-soft: #3A2933;
+  --accent-secondary: #8FAAA6;
+  --accent-secondary-hover: #A0BAB6;
+  --accent-secondary-soft: #293735;
+  --rule: #40373B;
+  --rule-soft: #352E32;
+  --p1: #CB9A96;
+  --p2: #C59AAF;
+  --p3: #8FAAA6;
+  --p4: #A4ACBE;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .95 0 0 0 0 .9 0 0 0 0 .88 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   color-scheme: dark;
 }
 
@@ -60,12 +74,14 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-padding-top: 2rem;
+  background: var(--bg);
 }
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  overflow-x: clip;
+  background: var(--grain);
+  color: var(--text);
   font-family: var(--font-serif);
   font-size: 1.0625rem;
   line-height: 1.75;
@@ -76,22 +92,33 @@ body {
   overflow-wrap: break-word;
 }
 
-::selection { background: var(--accent-soft); color: var(--ink-strong); }
+/* A slight deepening of tone away from the top-left of the sheet. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 130% 100% at 12% 0%,
+    transparent 45%, color-mix(in srgb, var(--surface) 55%, transparent) 100%);
+}
+
+::selection { background: var(--accent-primary-soft); color: var(--text-strong); }
 
 a {
-  color: var(--accent);
+  color: var(--accent-primary);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
   text-underline-offset: 0.2em;
 }
 a:hover {
-  color: var(--accent-dark);
+  color: var(--accent-primary-hover);
   text-decoration-color: currentColor;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-primary);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -115,16 +142,16 @@ main:focus { outline: none; }
   top: -4rem;
   z-index: 20;
   padding: 0.4rem 0.8rem;
-  background: var(--paper-deep);
-  color: var(--ink-strong);
+  background: var(--surface);
+  color: var(--text-strong);
   font-size: 0.95rem;
   font-style: italic;
 }
 .skip-link:focus { top: 0.6rem; }
 
-/* The page is one column of text set a little left of centre; the space to
-   either side is margin, and on wide screens the left margin carries the
-   section index. */
+/* One column of text, set left of centre. On wide screens a margin column
+   opens to its left: the masthead starts there, the section index lives
+   there, and diagrams reach into the space on either side. */
 
 .masthead,
 .page,
@@ -141,25 +168,46 @@ main:focus { outline: none; }
 
 /* Masthead */
 
-.masthead { padding-top: 2.5rem; }
+.masthead { padding-top: 2.75rem; }
 
 .masthead-inner {
-  padding-bottom: 1.35rem;
-  border-bottom: 1px solid var(--rule-soft);
+  position: relative;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+/* The opening rule runs from a filled point to an open one. */
+.masthead-inner::before,
+.masthead-inner::after,
+.colophon-inner::before {
+  content: "";
+  position: absolute;
+  bottom: -0.22rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border: 1px solid var(--accent-primary);
+  border-radius: 50%;
+}
+.masthead-inner::before { left: 0; background: var(--accent-primary); }
+.masthead-inner::after {
+  right: 0;
+  border-color: var(--accent-secondary);
+  background: var(--bg);
 }
 
 .masthead-title {
   display: inline-block;
-  color: var(--ink-strong);
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  color: var(--text-strong);
+  font-size: clamp(3rem, 2rem + 5vw, 4.75rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.028em;
   text-decoration: none;
 }
-.masthead-title:hover { color: var(--ink-strong); }
+.masthead-title:hover { color: var(--text-strong); }
+.page-philosophy .masthead-title,
+.page-programmes .masthead-title { font-size: clamp(2.6rem, 1.9rem + 3.4vw, 3.5rem); }
 
-.site-nav { margin-top: 0.65rem; }
+.site-nav { margin-top: 1.1rem; }
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -173,28 +221,28 @@ main:focus { outline: none; }
   text-decoration: none;
 }
 .site-nav a:hover {
-  color: var(--ink);
+  color: var(--text);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--rule);
 }
 .site-nav a[aria-current="page"] {
-  color: var(--ink-strong);
+  color: var(--accent-primary);
   font-style: italic;
 }
 
 /* Page */
 
-.page { padding-top: 3rem; }
+.page { padding-top: 3.25rem; }
 
 .page-head h1 {
-  margin: 0 0 2rem;
-  color: var(--ink-strong);
-  font-size: 1.8rem;
+  margin: 0 0 2.25rem;
+  color: var(--text-strong);
+  font-size: clamp(2.1rem, 1.5rem + 2.6vw, 3rem);
   font-style: italic;
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.005em;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
@@ -211,8 +259,9 @@ main:focus { outline: none; }
   hyphenate-limit-chars: 6 3 3;
   hanging-punctuation: first;
 }
+.prose .lead,
 .prose .question,
-.research-flow {
+.prose .research-flow {
   text-align: left;
   hyphens: manual;
   -webkit-hyphens: manual;
@@ -221,76 +270,279 @@ main:focus { outline: none; }
 .prose section > :last-child { margin-bottom: 0; }
 
 .prose .lead {
-  margin-bottom: 1.4em;
-  color: var(--ink-strong);
-  font-size: 1.2em;
-  line-height: 1.6;
+  margin-bottom: 1.5em;
+  color: var(--text-strong);
+  font-size: 1.28em;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
 }
 
 .prose strong {
   font-weight: 600;
-  color: var(--ink-strong);
+  color: var(--text-strong);
 }
 
 .prose section {
+  --p: var(--accent-primary);
   counter-increment: section;
-  margin-top: 5rem;
+  margin-top: 5.5rem;
 }
+.page-programmes .prose section:nth-of-type(1) { --p: var(--p1); }
+.page-programmes .prose section:nth-of-type(2) { --p: var(--p2); }
+.page-programmes .prose section:nth-of-type(3) { --p: var(--p3); }
+.page-programmes .prose section:nth-of-type(4) { --p: var(--p4); }
 
 .prose h2 {
-  margin: 0 0 1.4rem;
-  color: var(--ink-strong);
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.005em;
+  position: relative;
+  margin: 0 0 1.5rem;
+  color: var(--text-strong);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.05rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
   text-wrap: balance;
 }
 
 /* Section numerals: orientation only, generated here rather than written
-   into the text. */
+   into the text. A short rule runs on from each numeral. */
 .prose h2::before,
-.toc li::before {
-  color: var(--muted);
+.toc li::before,
+.programme-map li::before {
   font-family: var(--font-sans);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-variant-numeric: lining-nums tabular-nums;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
 }
 .prose h2::before {
   content: counter(section, decimal-leading-zero);
   content: counter(section, decimal-leading-zero) / "";
   display: block;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
+  color: var(--p);
   font-size: 0.72rem;
+  line-height: 1;
+}
+.prose h2::after {
+  content: "";
+  position: absolute;
+  left: 1.75rem;
+  top: 0.34rem;
+  width: 2.75rem;
+  border-top: 1px solid var(--p);
+  opacity: 0.7;
 }
 
-/* A question standing alone: a pause in the argument. */
+/* A question standing alone: the argument pauses. */
 .prose .question {
-  margin: 2.5em 0;
-  font-size: 1.1em;
+  position: relative;
+  margin: 3.2em 0 2.8em;
+  margin-right: calc(-0.6 * var(--reach));
+  padding-top: 1.1rem;
+  color: var(--text-strong);
+  font-size: 1.2em;
   font-style: italic;
-  line-height: 1.55;
+  line-height: 1.45;
   text-wrap: balance;
+}
+.prose .question::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.75rem;
+  border-top: 1px solid var(--accent-primary);
 }
 .prose .question strong { font-weight: 400; }
 
-/* Flow statements, set as a displayed expression: a → b → c */
+/* Flow statements, drawn as a chain: point, line, arrowhead, point. */
 .research-flow {
-  margin: 2.1em 0 !important;
-  color: var(--ink-strong);
-  font-weight: 600;
+  --flow: var(--p, var(--accent-secondary));
+  margin: 2.6em 0 !important;
+  margin-right: calc(-1 * var(--reach)) !important;
+  color: var(--text-strong);
+  line-height: 2.15;
   hanging-punctuation: none;
 }
-.research-flow .step { white-space: nowrap; }
+.page-philosophy .research-flow { --flow: var(--accent-secondary); }
+.research-flow .step {
+  display: inline-block;
+  white-space: nowrap;
+}
+.research-flow .term::before {
+  content: "";
+  display: inline-block;
+  width: 0.44rem;
+  height: 0.44rem;
+  margin-right: 0.5rem;
+  border: 1px solid var(--flow);
+  border-radius: 50%;
+  vertical-align: 0.1em;
+}
+.research-flow .step:first-child .term::before,
+.research-flow .step:last-child .term::before { background: var(--flow); }
+/* The arrow character stays in the text; the line and head are drawn over it. */
 .research-flow .arrow {
-  margin: 0 0.3em 0 0.15em;
-  color: var(--accent);
-  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  width: 1.7rem;
+  height: 0.7rem;
+  margin: 0 0.5rem 0 0.3rem;
+  color: var(--flow);
+  font-size: 0;
+  vertical-align: 0.68rem;
+}
+.research-flow .arrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 1px;
+  top: 50%;
+  border-top: 1px solid currentColor;
+}
+.research-flow .arrow::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  top: calc(50% + 0.5px);
+  width: 0.36rem;
+  height: 0.36rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
 }
 .prose section > .research-flow:last-child,
 .prose > .research-flow:last-child { margin-bottom: 0 !important; }
+
+/* The research cycle. Narrow: a vertical chain. Wider: an open spiral, so
+   that the last step lands beside the first rather than on it. */
+.cycle { margin: 2.6em 0 3em; }
+.cycle-drawing { display: none; }
+.cycle .research-flow { margin: 0 !important; line-height: 1.6; }
+.cycle .step {
+  position: relative;
+  display: block;
+  padding: 0 0 0.95rem 1.5rem;
+}
+.cycle .step:last-child { padding-bottom: 0; }
+.cycle .arrow {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.cycle .term::before {
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  margin: 0;
+}
+.cycle .step::after {
+  content: "";
+  position: absolute;
+  left: 0.22rem;
+  top: calc(0.62em + 0.6rem);
+  bottom: calc(-0.62em + 0.1rem);
+  border-left: 1px solid var(--flow);
+}
+.cycle .step:last-child::after { display: none; }
+.cycle .c3 .term::before,
+.cycle .c4 .term::before {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary);
+}
+
+.cycle-drawing,
+.map-drawing { overflow: visible; }
+.cycle-line,
+.cycle-tail,
+.cycle-head,
+.map-edge {
+  fill: none;
+  stroke: var(--accent-secondary);
+  stroke-width: 1;
+}
+.cycle-tail { stroke-dasharray: 2 5; }
+.cycle-head { stroke-linecap: round; stroke-linejoin: round; }
+.cycle-drawing .node {
+  fill: var(--bg);
+  stroke: var(--accent-secondary);
+  stroke-width: 1;
+}
+.cycle-drawing .node-f { fill: var(--accent-secondary); }
+.cycle-drawing .node-a {
+  fill: var(--accent-primary);
+  stroke: var(--accent-primary);
+}
+
+/* Programme map. Narrow: the four titles on a single thread. Wider: four
+   points with every pair joined. */
+.programme-map {
+  margin: 3.5rem 0 0;
+  margin-right: calc(-1 * var(--reach));
+}
+.map-drawing { display: none; }
+.programme-map ol {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: programme;
+}
+.programme-map li {
+  counter-increment: programme;
+  position: relative;
+  padding: 0 0 1.4rem 1.6rem;
+  line-height: 1.35;
+}
+.programme-map li:last-child { padding-bottom: 0; }
+.programme-map li::before {
+  content: counter(programme, decimal-leading-zero);
+  content: counter(programme, decimal-leading-zero) / "";
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--p);
+  font-size: 0.68rem;
+  line-height: 1;
+}
+.programme-map li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--p);
+}
+.programme-map ol::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.4rem;
+  bottom: 2.2rem;
+  border-left: 1px solid var(--accent-secondary);
+  opacity: 0.7;
+}
+.programme-map a {
+  display: block;
+  color: var(--text-strong);
+  text-decoration: none;
+  text-wrap: balance;
+}
+.programme-map a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--p);
+  text-underline-offset: 0.2em;
+}
+.p1 { --p: var(--p1); }
+.p2 { --p: var(--p2); }
+.p3 { --p: var(--p3); }
+.p4 { --p: var(--p4); }
+.map-node { fill: var(--p); }
 
 /* Section index */
 
@@ -306,15 +558,23 @@ main:focus { outline: none; }
   counter-reset: index;
 }
 .toc li {
+  --p: var(--accent-primary);
   counter-increment: index;
+  position: relative;
   display: grid;
   grid-template-columns: 2rem minmax(0, 1fr);
   align-items: baseline;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.55rem;
+  padding-left: 0.95rem;
 }
+.page-programmes .toc li:nth-child(1) { --p: var(--p1); }
+.page-programmes .toc li:nth-child(2) { --p: var(--p2); }
+.page-programmes .toc li:nth-child(3) { --p: var(--p3); }
+.page-programmes .toc li:nth-child(4) { --p: var(--p4); }
 .toc li::before {
   content: counter(index, decimal-leading-zero);
   content: counter(index, decimal-leading-zero) / "";
+  color: var(--p);
   font-size: 0.66rem;
 }
 .toc a {
@@ -323,19 +583,45 @@ main:focus { outline: none; }
   text-wrap: balance;
 }
 .toc a:hover {
-  color: var(--ink);
+  color: var(--text);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--rule);
 }
-.toc a[aria-current] {
-  color: var(--ink-strong);
-  font-style: italic;
+/* The section being read: darker, with a point beside its numeral. */
+.toc a[aria-current] { color: var(--text-strong); }
+.toc a[aria-current]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.48em;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: var(--p);
 }
 
 /* Colophon: the theme control lives here, out of the way. */
 
 .colophon { padding-top: 6rem; padding-bottom: 3rem; }
+.colophon-inner {
+  position: relative;
+  padding-top: 1.1rem;
+}
+.colophon-inner::before {
+  top: 0;
+  bottom: auto;
+  left: 0;
+  border-color: var(--accent-secondary);
+}
+.colophon-inner::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  top: 0.2rem;
+  width: 2.75rem;
+  border-top: 1px solid var(--accent-secondary);
+}
 
 .theme-toggle {
   display: none;
@@ -351,11 +637,65 @@ main:focus { outline: none; }
 }
 .js .theme-toggle { display: inline-block; }
 .theme-toggle:hover {
-  color: var(--ink);
+  color: var(--text);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--rule);
   text-underline-offset: 0.2em;
+}
+
+/* From here the cycle and the programme map are drawn as diagrams. */
+@media (min-width: 40rem) {
+  .cycle,
+  .programme-map {
+    position: relative;
+  }
+  .cycle { aspect-ratio: 720 / 430; margin: 1.2em 0 2.2em; }
+  .programme-map { aspect-ratio: 800 / 430; margin-top: 4rem; }
+  .cycle-drawing,
+  .map-drawing {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cycle .step {
+    position: absolute;
+    display: block;
+    padding: 0;
+    white-space: nowrap;
+    line-height: 1.3;
+  }
+  .cycle .step::after,
+  .cycle .term::before { display: none; }
+  .cycle .stop {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .cycle .c1 { left: 25.2%; top: 31.2%; transform: translateY(-50%); }
+  .cycle .c2 { left: 60.7%; top: 21%; transform: translateX(-50%); }
+  .cycle .c3 { right: 14.4%; top: 44.7%; transform: translateY(-50%); }
+  .cycle .c4 { right: 22%; bottom: 23.5%; }
+  .cycle .c5 { left: 30.6%; bottom: 18.5%; }
+  .cycle .c6 { left: 14%; top: 40.5%; transform: translateY(-50%); }
+
+  .programme-map ol { position: static; }
+  .programme-map ol::before,
+  .programme-map li::after { display: none; }
+  .programme-map li {
+    position: absolute;
+    padding: 0;
+    font-size: 0.95rem;
+  }
+  .programme-map li.p1 { right: 75%; top: 44.2%; width: 23%; transform: translateY(-50%); text-align: right; }
+  .programme-map li.p2 { left: 53%; bottom: 85.5%; width: 36%; }
+  .programme-map li.p3 { left: 77%; top: 54.7%; width: 23%; transform: translateY(-50%); }
+  .programme-map li.p4 { left: 42%; top: 80.5%; width: 38%; }
 }
 
 @media (min-width: 48rem) {
@@ -365,28 +705,32 @@ main:focus { outline: none; }
   }
   body { font-size: 1.125rem; }
 
-  .masthead { padding-top: 4rem; }
-  .masthead-inner { padding-bottom: 1.6rem; }
-  .masthead-title { font-size: 2.3rem; }
-  .site-nav { margin-top: 0.8rem; }
-  .site-nav ul { column-gap: 2rem; }
+  .masthead { padding-top: 4.5rem; }
+  .masthead-inner { padding-bottom: 1.9rem; }
+  .site-nav { margin-top: 1.4rem; }
+  .site-nav ul { column-gap: 2.1rem; }
 
-  .page { padding-top: 4.25rem; }
-  .page-head h1 { font-size: 2rem; margin-bottom: 2.75rem; }
-  .prose .lead { font-size: 1.24em; }
-  .prose h2 { font-size: 1.6rem; }
-  .prose section { margin-top: 6.5rem; }
-  .prose .question { padding-left: 1.6em; }
-  .research-flow { padding-left: 1.6em; }
+  .page { padding-top: 4.75rem; }
+  .page-about .page { padding-top: 4.25rem; }
+  .page-head h1 { margin-bottom: 3.25rem; }
+  .prose .lead { font-size: 1.36em; }
+  .prose section { margin-top: 7.5rem; }
+  .prose h2 { margin-bottom: 1.75rem; }
+  .prose .question { font-size: 1.36em; }
+  .research-flow .arrow { width: 2.4rem; }
   .colophon { padding-top: 8rem; padding-bottom: 4rem; }
 }
 
-/* Wide: the section index moves out into the left margin. */
+/* Wide: the margin column opens. */
 @media (min-width: 66rem) {
   :root {
     --pad-l: max(calc(var(--gutter) + var(--margin-col) + var(--margin-gap)),
                  calc((100vw - var(--measure)) * 0.44));
+    --reach: min(12rem, calc(100vw - var(--pad-l) - var(--measure) - var(--gutter)));
   }
+  .masthead { padding-left: calc(var(--pad-l) - var(--margin-col) - var(--margin-gap)); }
+  .masthead-inner { max-width: calc(var(--measure) + var(--margin-col) + var(--margin-gap)); }
+
   .page {
     display: grid;
     grid-template-columns: var(--margin-col) minmax(0, var(--measure));
@@ -403,12 +747,40 @@ main:focus { outline: none; }
     top: 2.5rem;
     max-height: calc(100vh - 5rem);
     overflow-y: auto;
-    margin: 0.75rem 0 0;
+    margin: 1.1rem 0 0;
     font-size: 0.88rem;
   }
-  .toc li { grid-template-columns: 1.85rem minmax(0, 1fr); margin-bottom: 0.6rem; }
+  .toc li { grid-template-columns: 1.85rem minmax(0, 1fr); margin-bottom: 0.65rem; }
+
+  /* With no index on the About page, the cycle reaches into both margins. */
+  .cycle {
+    margin-left: -5rem;
+    margin-right: calc(-0.5 * var(--reach));
+  }
+}
+
+/* Motion: diagrams arrive once, quietly. Nothing depends on it. */
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  .theme-toggle { transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+
+  .js .reveal { transition: opacity 0.9s ease; }
+  .js .reveal:not(.is-visible) { opacity: 0; }
+
+  .js .cycle-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 2.2s ease-in-out 0.2s;
+  }
+  .js .cycle:not(.is-visible) .cycle-line { stroke-dashoffset: 1; }
+  .js .cycle-tail,
+  .js .cycle-head { transition: opacity 0.8s ease 1.9s; }
+  .js .cycle:not(.is-visible) .cycle-tail,
+  .js .cycle:not(.is-visible) .cycle-head { opacity: 0; }
 }
 
 @media print {
+  body { background: none; }
+  body::before { display: none; }
   .site-nav, .toc, .colophon, .skip-link { display: none; }
 }

@@ -1,5 +1,4 @@
-// Theme: apply the saved preference before first paint. With nothing saved,
-// CSS follows the OS setting through prefers-color-scheme on its own.
+// Theme: light by default; apply a saved preference before first paint.
 (function () {
   var root = document.documentElement;
   var KEY = "theme";
@@ -12,9 +11,7 @@
   } catch (e) {}
 
   function currentTheme() {
-    if (root.dataset.theme) return root.dataset.theme;
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark" : "light";
+    return root.dataset.theme === "dark" ? "dark" : "light";
   }
 
   function initThemeToggle() {
@@ -72,8 +69,27 @@
     update();
   }
 
+  // Diagrams fade or draw in once, the first time they come into view.
+  function initReveal() {
+    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+    if (!items.length) return;
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -12% 0px" });
+    items.forEach(function (el) { observer.observe(el); });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initThemeToggle();
     initToc();
+    initReveal();
   });
 })();
