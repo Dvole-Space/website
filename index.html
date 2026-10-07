@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dvole Space</title>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dvole</title>
+  <meta name="description" content="Dvole is an independent research initiative focused on foundational questions around intelligent systems, interaction, knowledge, mathematical structure, and the ways increasingly capable AI systems are being integrated into science and society.">
+  <meta name="color-scheme" content="light dark">
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1 class="site-title"><a href="index.html">Dvole Space</a></h1>
-        <nav class="topnav">
-            <a href="projects.html">Projects</a> |
-            <a href="writing.html">Writing</a>
-        </nav>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Dvole</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html" aria-current="page">About</a></li>
+          <li><a href="philosophy.html">Research Philosophy</a></li>
+          <li><a href="programmes.html">Research Programmes</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+          <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="content" class="page" tabindex="-1">
+    <header class="page-head page-head--label">
+      <h1>About</h1>
     </header>
 
-    <hr>
-
-    <main>
-        <p>Dvole Space is a research lab whose primary focus is on foundational sciences. With the AI revolution, the core research spaces, especially those of mathematics, theoretical physics and computer science, are flooded with results. Loads of information, a lot of it, very useful and insightful, but a lot of clutter as well.</p>
-
-        <p>This very phenomenon should direct us to focus on even more foundational stuff. Human society's collective knowledge has been constantly directed towards a more fundamental/metaphysical model of the universe. With AI, intelligently brute-forcing proofs for all these mathematical conjectures, and even the empirical AI research, which is reaching a saturation point, taking a step further towards the metaphysical dimension, will really shape the new research landscapes.</p>
-
-        <p>Further, one of the core philosophies behind the research I intend to do is to see the big picture first and then optimise the smaller ones accordingly. In other words, I am highly inclined to apply insights and instincts from all these fields—maths, physics, philosophy, etc, to each other, and not just perform research only for the sake of a particular field.</p>
-
-        <p>The website is going to grow actively, and expect major changes along the way, as it will first start with somewhat raw materials, and polish and shape itself as the research grows. I doubt many will be interested in joining it. Still, either way, I am not really looking for any collaborators yet, I have to work a bit myself to make sure that first, I clearly, at least to some extent, understand the core of what I am envisioning, and with that, expect research notes, suggested readings, blogs and eventually some research bits in the coming months.</p>
-    </main>
-
-    <footer>
-        Dvole Space<br>
-        Contact: <a href="mailto:contact@dvole.org">contact@dvole.org</a> &middot; <a href="mailto:da1729.999@gmail.com">da1729.999@gmail.com</a>
-    </footer>
+    <div class="prose">
+      <p class="lead">Dvole is an independent research initiative focused on foundational questions around intelligent systems, interaction, knowledge, mathematical structure, and the ways increasingly capable AI systems are being integrated into science and society.</p>
+      <p>A large part of the motivation behind Dvole comes from something fairly simple: we are becoming extremely good at producing information, experiments, models, simulations, and increasingly capable systems, but producing more information does not necessarily mean that we understand more.</p>
+      <p>We are interested in what lies underneath those observations.</p>
+      <p>If some behaviour appears in a particular model, environment, or experiment, what part of it is specific to that setting, and what part reflects something more general? What survives when we change the model, the representation, or the way different components interact? Can those recurring structures be explained mathematically, rather than remaining as isolated empirical facts?</p>
+      <p>A recurring direction of our research is therefore to move from observation to explanation, from explanation to abstraction, and from abstraction to something general enough to be useful elsewhere.</p>
+      <p>Artificial intelligence, particularly multi-agent systems, is a natural setting for this. Questions about information, knowledge, communication, coordination, partial observation, incentives, safety, and strategic behaviour all appear together, and they can be studied both empirically and mathematically.</p>
+      <p>We are especially interested in systems where the interesting behaviour appears through interaction. A property of an individual agent may disappear once agents communicate. A communication channel may technically exist without being worth exploiting. Improving coordination may weaken confidentiality. Increasing safety may reduce utility. Rather than treating these as isolated engineering problems, we want to understand the structures behind such trade-offs and make them explicit.</p>
+      <p>The theory should eventually come back to the system.</p>
+      <p>If a mathematical framework can tell us how to construct a better protocol, what guarantees are possible, which assumptions those guarantees depend on, or which design choices matter in a particular environment, then that is part of the research as well. And if the real system breaks the abstraction, the abstraction should change.</p>
+      <p>So the research is naturally cyclic:</p>
+      <p class="research-flow"><span class="step">observation</span> <span class="step"><span class="arrow">→</span> structural explanation</span> <span class="step"><span class="arrow">→</span> mathematical abstraction</span> <span class="step"><span class="arrow">→</span> general theory</span> <span class="step"><span class="arrow">→</span> practical instantiation</span> <span class="step"><span class="arrow">→</span> new observation.</span></p>
+      <p>There is also a broader question we care about: what happens when these systems begin to become part of the infrastructure through which science, research, institutions, and eventually large parts of society operate?</p>
+      <p>A lot of discussion around AI compresses very different things into a few broad words like <em>capability</em>, <em>safety</em>, or <em>risk</em>. We are interested in understanding those terms much more precisely. What does a new capability actually change? What does a safety failure tell us about the underlying system? Which failures are local engineering problems, which expose something structural, and which should genuinely change how a system is deployed or governed?</p>
+      <p>The same applies to scientific research. If AI systems increasingly participate in mathematical reasoning, experimentation, simulation, literature analysis, software development, or scientific discovery, then the interesting question is not only whether they can perform those tasks. It is also how research itself should change around them.</p>
+      <p>This can mean studying how AI should be used inside existing scientific workflows, but it can also mean asking whether some of those workflows, collaboration structures, and research institutions should be redesigned altogether. The way knowledge is produced, shared, verified, and combined may change substantially as these systems become more capable.</p>
+      <p>Policy, in this picture, is downstream of understanding. Before deciding how advanced systems should be regulated or integrated, we need a much clearer picture of what their capabilities actually are, what their failures mean, how quickly different parts of society can adapt to them, and which kinds of research infrastructure will be needed around them.</p>
+      <p>This is also why our interests are not restricted to studying AI systems themselves. Mathematics, physics, and other foundational sciences are places where some of these changes can be observed directly. They are also independent sources of deep structural questions in their own right. Understanding how increasingly capable computational systems interact with these fields may tell us something both about the systems and about the way scientific knowledge itself develops.</p>
+      <p>The questions we pursue can therefore come from very different places: AI, mathematics, epistemology, physics, complex systems, scientific practice, or simply from trying to understand what it means for a system to know, infer, represent, coordinate, or understand something.</p>
+      <p>Dvole is meant to provide one continuous place for pursuing those questions across different collaborations, research environments, and disciplines.</p>
+      <p>The central instinct is to look at a complicated system and ask: <strong>what is accidental, what is structural, what can be abstracted away, what survives when the setting changes, and what becomes possible once we understand that structure?</strong></p>
+    </div>
+  </main>
 </body>
 </html>

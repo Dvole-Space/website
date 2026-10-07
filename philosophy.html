@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Philosophy · Dvole</title>
+  <meta name="description" content="A large part of how we think about research at Dvole comes down to moving between different levels of understanding.">
+  <meta name="color-scheme" content="light dark">
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Dvole</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="philosophy.html" aria-current="page">Research Philosophy</a></li>
+          <li><a href="programmes.html">Research Programmes</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+          <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="content" class="page" tabindex="-1">
+    <header class="page-head">
+      <h1>Research Philosophy</h1>
+    </header>
+
+    <nav class="toc" aria-label="On this page">
+      <ol>
+        <li><a href="#abstraction">Abstraction</a></li>
+        <li><a href="#experiment-and-theory">Experiment and theory</a></li>
+        <li><a href="#epistemology">Epistemology</a></li>
+        <li><a href="#foundations-should-eventually-return-to-systems">Foundations should eventually return to systems</a></li>
+        <li><a href="#ai-and-the-structure-of-research">AI and the structure of research</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose">
+      <p>A large part of how we think about research at Dvole comes down to moving between different levels of understanding.</p>
+      <p>We are interested in foundational questions, but not in foundational questions that remain detached from everything else. Ideally, a philosophical or conceptual question should eventually be made precise enough that we can reason about it mathematically, test some part of it empirically, or use it to say something useful about an actual system.</p>
+      <p>And the direction can go the other way as well. A strange empirical observation, an unexpected failure of an AI system, or some behaviour that repeatedly appears across different environments may be telling us that there is a more general structure underneath it.</p>
+      <p>That movement between the two is probably the simplest description of the kind of research we want to do.</p>
+
+      <section id="abstraction" aria-labelledby="abstraction-heading">
+        <h2 id="abstraction-heading">Abstraction</h2>
+        <p>We care a lot about abstraction.</p>
+        <p>Not simply because abstract mathematics is elegant, but because abstraction is one of the main ways we have of making a large amount of information manageable.</p>
+        <p>Suppose we repeatedly observe a collection of particular objects or phenomena. At first, we may reason about each of them separately. Eventually, we may notice that some of the differences between them do not actually matter for the questions we are asking. We can then discard those differences and reason about the structure they share.</p>
+        <p>Mathematics does this constantly.</p>
+        <p>Instead of reasoning separately about every possible collection of objects, we develop general notions of sets and structures. Instead of working only with particular numerical systems, we identify algebraic properties and study structures satisfying them. Eventually we can reason about relationships between mathematical structures themselves.</p>
+        <p>The important part is not the particular sequence of abstractions. It is the recurring operation:</p>
+        <p class="question"><strong>What can we remove while preserving what actually matters?</strong></p>
+        <p>We think essentially the same question can be asked about intelligent systems, scientific experiments, physical theories, representations, and many other things.</p>
+        <p>This becomes particularly important when information is abundant.</p>
+        <p>We can generate enormous numbers of experiments and empirical observations. We can evaluate thousands of models under different conditions. But unless we are able to connect those observations, understand which differences matter, and construct a coherent structure around them, we have mostly produced a larger collection of facts.</p>
+        <p>Abstraction is one way of turning that collection into something we can reason about.</p>
+      </section>
+
+      <section id="experiment-and-theory" aria-labelledby="experiment-and-theory-heading">
+        <h2 id="experiment-and-theory-heading">Experiment and theory</h2>
+        <p>At the same time, abstraction cannot float freely.</p>
+        <p>Physics gives us a useful picture here.</p>
+        <p>We observe something experimentally. We try to construct a theory that explains it. The theory gives us consequences that were not directly contained in the original observation. We make predictions. We then design another experiment and ask whether those predictions survive contact with reality.</p>
+        <p>Schematically:</p>
+        <p class="research-flow"><span class="step">experiment</span> <span class="step"><span class="arrow">→</span> observation</span> <span class="step"><span class="arrow">→</span> theory</span> <span class="step"><span class="arrow">→</span> prediction</span> <span class="step"><span class="arrow">→</span> experiment</span></p>
+        <p>It is a simplified picture, but we like the basic structure.</p>
+        <p>Experiments constrain theory. Theory tells us which experiments are worth performing.</p>
+        <p>An isolated empirical result can tell us that something happened under a particular set of conditions. It does not automatically tell us which parts of that result will survive when the conditions change.</p>
+        <p>A theory can give us a beautiful explanation, but if it cannot eventually tell us something about the world or the systems that motivated it, its elegance alone is not enough.</p>
+        <p>So we are interested in both directions.</p>
+      </section>
+
+      <section id="epistemology" aria-labelledby="epistemology-heading">
+        <h2 id="epistemology-heading">Epistemology</h2>
+        <p>There is an epistemological question underneath almost all of this:</p>
+        <p class="question"><strong>What does it actually mean for us to understand something?</strong></p>
+        <p>This becomes much more interesting as AI systems become capable of producing increasingly sophisticated outputs.</p>
+        <p>A model may generate a proof. A multi-agent system may successfully coordinate. A scientific AI system may discover some empirical relationship. But the existence of the output does not settle every question about what has been understood, why it works, which information was necessary, or whether the resulting conclusion will continue to hold elsewhere.</p>
+        <p>The same applies to us.</p>
+        <p>If an experiment gives us some result, what are we actually justified in concluding from it?</p>
+        <p>If two systems look identical under the measurements available to us, does that mean they are structurally identical, or merely that our observations cannot distinguish them?</p>
+        <p>If changing the representation of a problem leaves some property unchanged, is that property genuinely fundamental, or merely invariant under the transformations we happened to consider?</p>
+        <p>These are philosophical questions, but they can very quickly become mathematical ones.</p>
+        <p>That is one reason epistemology matters to us. It is not separate from the technical work. Questions about knowledge, observation, evidence, representation, and inference often determine what the technical problem actually is.</p>
+      </section>
+
+      <section id="foundations-should-eventually-return-to-systems" aria-labelledby="foundations-should-eventually-return-to-systems-heading">
+        <h2 id="foundations-should-eventually-return-to-systems-heading">Foundations should eventually return to systems</h2>
+        <p>We do not want the foundational side of the work to remain isolated.</p>
+        <p>If we develop a theory about information flow in interacting agents, we should ask whether it can tell us how a protocol should be designed.</p>
+        <p>If we understand a particular safety–utility trade-off mathematically, we should ask whether an engineer can actually use that understanding when constructing a system.</p>
+        <p>If we develop some account of abstraction or representation, we should ask whether it changes how a learning system could be designed or how an experiment should be interpreted.</p>
+        <p>This is where tools, protocols, simulations, experiments, and engineering work enter.</p>
+        <p>The practical output is not separate from the philosophy that motivated it. Ideally, it is one of the ways we find out whether the philosophy was useful in the first place.</p>
+        <p>And practical systems will usually expose things that the abstraction missed. Then we go back.</p>
+        <p>So a recurring research cycle for us looks something like:</p>
+        <p class="research-flow"><span class="step">phenomenon</span> <span class="step"><span class="arrow">→</span> question</span> <span class="step"><span class="arrow">→</span> structural explanation</span> <span class="step"><span class="arrow">→</span> mathematical abstraction</span> <span class="step"><span class="arrow">→</span> theory</span> <span class="step"><span class="arrow">→</span> practical instantiation</span> <span class="step"><span class="arrow">→</span> new phenomenon</span></p>
+        <p>There is no reason the process always has to begin at the same point.</p>
+      </section>
+
+      <section id="ai-and-the-structure-of-research" aria-labelledby="ai-and-the-structure-of-research-heading">
+        <h2 id="ai-and-the-structure-of-research-heading">AI and the structure of research</h2>
+        <p>AI makes all of this particularly interesting because it does not only give us a new class of systems to study.</p>
+        <p>It is also beginning to change the process through which we study everything else.</p>
+        <p>Scientific knowledge has been accumulating for a very long time. To contribute to a mature field, a researcher may need to spend years learning what is already known before they can even reach the boundary where new questions become accessible.</p>
+        <p>Increasingly capable AI systems change some of those constraints.</p>
+        <p>They can help us navigate literature, perform calculations, implement experiments, translate between technical languages, explore unfamiliar fields, and handle parts of scientific work that previously consumed a large fraction of a researcher's attention.</p>
+        <p>We do not yet know what the long-term consequences of that will be.</p>
+        <p>But we think the interesting question is larger than whether AI can write proofs, generate code, or automate experiments.</p>
+        <p>What happens to scientific research when some of the cost of manipulating accumulated knowledge becomes dramatically smaller?</p>
+        <p>Do different kinds of questions become practical to investigate?</p>
+        <p>Can individual researchers move across fields more freely?</p>
+        <p>Do collaboration structures change?</p>
+        <p>Does the distinction between theoretician and experimentalist move?</p>
+        <p>How should scientific results produced with increasingly capable systems be verified and interpreted?</p>
+        <p>And eventually, how should research institutions and policy adapt to all of this?</p>
+        <p>We do not think these questions can be answered independently of the technology itself. To reason seriously about how AI should be integrated into scientific and societal structures, we first need to understand what the systems can actually do, what their failures actually mean, and which changes are fundamental rather than temporary artifacts of the current generation of models.</p>
+        <p>That is why we are interested in moving freely between mathematics, empirical AI research, epistemology, scientific practice, and eventually questions about research infrastructure and policy.</p>
+        <p>They may look like different subjects from the outside.</p>
+        <p>For us, they are different places from which to ask a similar set of questions:</p>
+        <p class="question"><strong>What do we know? Why do we think we know it? Which parts of what we observe are structural? What can we abstract away? And what becomes possible once we understand the structure well enough to use it?</strong></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
