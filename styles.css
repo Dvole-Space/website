@@ -623,6 +623,14 @@ main:focus { outline: none; }
   border-top: 1px solid var(--accent-secondary);
 }
 
+.contact {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-variant-numeric: lining-nums;
+}
+.contact a { margin-left: 0.35rem; }
+
 .theme-toggle {
   display: none;
   margin: 0;
