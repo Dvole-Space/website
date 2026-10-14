@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research Programmes · Dvole</title>
-  <meta name="description" content="Our research is organized around a small number of programmes rather than isolated projects.">
-  <meta name="color-scheme" content="light">
+  <meta name="description" content="Six research programmes exploring knowledge, mathematical structure, computation, decisions, physical theories, and scientific practice.">
+  <meta name="color-scheme" content="light dark">
   <script src="app.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,9 +17,9 @@
       <a class="masthead-title" href="index.html">Dvole</a>
       <nav class="site-nav" aria-label="Main">
         <ul>
-          <li><a href="index.html">About</a></li>
           <li><a href="philosophy.html">Research Philosophy</a></li>
           <li><a href="programmes.html" aria-current="page">Research Programmes</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
         </ul>
       </nav>
     </div>
@@ -30,91 +30,104 @@
       <h1>Research Programmes</h1>
     </header>
 
-    <nav class="toc" aria-label="On this page">
+    <nav class="toc" aria-label="Research programme index">
       <ol>
-        <li><a href="#information-interaction-and-control-in-multi-agent-systems">Information, Interaction, and Control in Multi-Agent Systems</a></li>
-        <li><a href="#abstraction-representation-and-epistemic-structure">Abstraction, Representation, and Epistemic Structure</a></li>
-        <li><a href="#ai-and-the-structure-of-scientific-research">AI and the Structure of Scientific Research</a></li>
-        <li><a href="#mathematical-structures-across-physical-and-intelligent-systems">Mathematical Structures Across Physical and Intelligent Systems</a></li>
+        <li><a href="#knowledge-evidence-and-representation">Knowledge, Evidence, and Representation</a></li>
+        <li><a href="#abstraction-equivalence-and-mathematical-structure">Abstraction, Equivalence, and Mathematical Structure</a></li>
+        <li><a href="#information-computation-and-interaction">Information, Computation, and Interaction</a></li>
+        <li><a href="#decision-games-and-collective-behaviour">Decision, Games, and Collective Behaviour</a></li>
+        <li><a href="#mathematical-foundations-of-physical-theories">Mathematical Foundations of Physical Theories</a></li>
+        <li><a href="#dynamics-of-knowledge-and-scientific-practice">Dynamics of Knowledge and Scientific Practice</a></li>
       </ol>
     </nav>
 
     <div class="prose">
-      <p>Our research is organized around a small number of programmes rather than isolated projects.</p>
-      <p>The programmes are meant to be broad enough to support several different questions over time, while still having a clear mathematical and conceptual centre. Individual projects may move between programmes, and some of the most interesting work will probably appear exactly where two of them overlap.</p>
+      <p>Our research at Dvole is organized around several programmes, each concerned with a different set of foundational questions. The programmes are not entirely independent of one another, and we expect some of the more interesting problems to arise from the relationships between them.</p>
 
-      <div class="programme-map reveal">
-        <svg class="map-drawing" viewBox="0 0 800 430" aria-hidden="true" focusable="false">
-          <path class="map-edge" d="M215 190 Q312.1 103.5 440 80"/>
-          <path class="map-edge" d="M440 80 Q544.8 131.9 600 235"/>
-          <path class="map-edge" d="M600 235 Q483.9 313.1 345 330"/>
-          <path class="map-edge" d="M345 330 Q254.8 283.4 215 190"/>
-          <path class="map-edge" d="M215 190 Q403.9 243.3 600 235"/>
-          <path class="map-edge" d="M440 80 Q367.5 195.5 345 330"/>
-          <circle class="map-node p1" cx="215" cy="190" r="5"/>
-          <circle class="map-node p2" cx="440" cy="80" r="5"/>
-          <circle class="map-node p3" cx="600" cy="235" r="5"/>
-          <circle class="map-node p4" cx="345" cy="330" r="5"/>
-        </svg>
-        <ol>
-          <li class="p1"><a href="#information-interaction-and-control-in-multi-agent-systems">Information, Interaction, and Control in Multi-Agent Systems</a></li>
-          <li class="p2"><a href="#abstraction-representation-and-epistemic-structure">Abstraction, Representation, and Epistemic Structure</a></li>
-          <li class="p3"><a href="#ai-and-the-structure-of-scientific-research">AI and the Structure of Scientific Research</a></li>
-          <li class="p4"><a href="#mathematical-structures-across-physical-and-intelligent-systems">Mathematical Structures Across Physical and Intelligent Systems</a></li>
-        </ol>
-      </div>
+      <section id="knowledge-evidence-and-representation" aria-labelledby="knowledge-evidence-and-representation-heading">
+        <h2 id="knowledge-evidence-and-representation-heading"><span class="programme-number">01.</span> Knowledge, Evidence, and Representation</h2>
+      <p>We are interested in how knowledge can be represented, acquired, and justified, particularly when an observer has access to only partial information about the system being studied.</p>
 
-      <section id="information-interaction-and-control-in-multi-agent-systems" aria-labelledby="information-interaction-and-control-in-multi-agent-systems-heading">
-        <h2 id="information-interaction-and-control-in-multi-agent-systems-heading">Information, Interaction, and Control in Multi-Agent Systems</h2>
-        <p>Multi-agent systems become interesting precisely because properties of individual agents do not necessarily survive interaction.</p>
-        <p>Once capable agents communicate, coordinate, observe one another, hide information, form beliefs, or act strategically, the system acquires behaviours that cannot always be understood by studying each agent independently.</p>
-        <p>We are interested in the mathematical structure behind these interactions.</p>
-        <p>A major part of this programme concerns information flow: what information can move between agents, what can be inferred from communication, what remains hidden under monitoring, and what kinds of guarantees are possible when communication itself is necessary for useful coordination.</p>
-        <p>Information theory gives us one natural language for studying these questions, but it is only part of the picture. The existence of a communication channel does not imply that an agent will actually exploit it. Incentives, computational costs, strategic behaviour, and the beliefs agents hold about one another can all matter.</p>
-        <p>This naturally brings together information theory, probability, game theory, formal epistemology, protocol design, and questions of compositional safety.</p>
-        <p>We are particularly interested in trade-offs that system designers eventually have to confront directly: utility against confidentiality, coordination against information control, capability against oversight, and local guarantees against emergent system-level behaviour.</p>
-        <p>The broader aim is to understand these trade-offs well enough that they can eventually become design principles rather than accidental properties of a particular system.</p>
-        <p class="research-flow reveal"><span class="step"><span class="term">information flow</span></span> <span class="step"><span class="arrow">→</span> <span class="term">interaction</span></span> <span class="step"><span class="arrow">→</span> <span class="term">incentives</span></span> <span class="step"><span class="arrow">→</span> <span class="term">system-level behaviour</span></span> <span class="step"><span class="arrow">→</span> <span class="term">formal control</span></span></p>
+      <p>Suppose two systems are indistinguishable under a particular collection of observations. What conclusions can we draw about them? How would those conclusions change if additional observations became available? And how do the assumptions we make about a system affect what we are able to infer from it?</p>
+
+      <p>These questions lead naturally to formal epistemology, epistemic and modal logic, probability, belief revision, and mathematical models of observation and inference.</p>
+
+      <p>We are also interested in how different representations of knowledge relate to one another, and how formal models can help distinguish what is known, what is inferred, and what remains undecidable from the available information.</p>
       </section>
 
-      <section id="abstraction-representation-and-epistemic-structure" aria-labelledby="abstraction-representation-and-epistemic-structure-heading">
-        <h2 id="abstraction-representation-and-epistemic-structure-heading">Abstraction, Representation, and Epistemic Structure</h2>
-        <p>A system never encounters the world without some form of representation.</p>
-        <p>It observes through particular channels, receives particular encodings, distinguishes some things while collapsing others, and eventually constructs some notion of what should count as the same object, the same structure, or the same phenomenon.</p>
-        <p>We are interested in how those distinctions arise.</p>
-        <p>A recurring question is what remains invariant when the representation changes. But even that hides a deeper problem: which transformations should count as representational changes in the first place, and why should a particular invariant be regarded as meaningful?</p>
-        <p>This leads naturally to questions about observation, equivalence, abstraction, knowledge, and inference.</p>
-        <p>If two systems appear identical under every observation available to an agent, what exactly has the agent learned about them? When is an ignored distinction genuinely irrelevant, and when does a new context force it to return? Can an abstract object be reconstructed from several partial representations rather than assumed beforehand?</p>
-        <p>These questions can be approached from several directions. Formal epistemology and epistemic logic provide languages for knowledge and observation. Causal abstraction gives ways of relating descriptions at different levels. Automata theory gives precise models of systems with limited information. Category theory provides tools for reasoning about structure and transformations, while type theory and homotopy type theory offer different ways of thinking about identity, equivalence, and the construction of mathematical objects.</p>
-        <p>The aim is not to force all of these tools into one framework. It is to use whichever mathematical language makes the underlying question precise.</p>
-        <p class="research-flow reveal"><span class="step"><span class="term">observation</span></span> <span class="step"><span class="arrow">→</span> <span class="term">representation</span></span> <span class="step"><span class="arrow">→</span> <span class="term">inference</span></span> <span class="step"><span class="arrow">→</span> <span class="term">equivalence</span></span> <span class="step"><span class="arrow">→</span> <span class="term">abstraction</span></span> <span class="step"><span class="arrow">→</span> <span class="term">knowledge</span></span></p>
+      <section id="abstraction-equivalence-and-mathematical-structure" aria-labelledby="abstraction-equivalence-and-mathematical-structure-heading">
+        <h2 id="abstraction-equivalence-and-mathematical-structure-heading"><span class="programme-number">02.</span> Abstraction, Equivalence, and Mathematical Structure</h2>
+      <p>This programme is concerned with the mathematical relationships between different structures, representations, and levels of abstraction.</p>
+
+      <p>A recurring direction is to investigate the conditions under which different mathematical objects or descriptions can be considered equivalent, which properties are preserved by transformations between them, and how more general structures can be constructed from particular realizations.</p>
+
+      <p>Our interests here include abstract algebra, category theory, higher category theory, type theory, homotopy type theory, and connections to geometry and topology.</p>
+
+      <p>We are particularly interested in structural approaches that allow us to reason about relationships between mathematical objects without depending on their particular representations. This includes questions about identity, equivalence, invariance, and the mathematical constructions through which different theories can be related.</p>
+
+      <p>The programme also provides room for purely mathematical investigations, including problems motivated by relationships between otherwise distinct areas of mathematics.</p>
       </section>
 
-      <section id="ai-and-the-structure-of-scientific-research" aria-labelledby="ai-and-the-structure-of-scientific-research-heading">
-        <h2 id="ai-and-the-structure-of-scientific-research-heading">AI and the Structure of Scientific Research</h2>
-        <p>AI is not only becoming an object of scientific research. It is increasingly becoming part of the machinery through which research itself is done.</p>
-        <p>That distinction matters.</p>
-        <p>A system that can search literature, manipulate formal expressions, generate code, design experiments, analyse data, or move between technical domains changes more than the speed of an existing workflow. It may change which questions are practical to investigate, how much prior knowledge an individual researcher must personally carry, how researchers move between disciplines, and how scientific work is divided between people and machines.</p>
-        <p>We are interested in these changes at the level of scientific structure rather than only productivity.</p>
-        <p>What happens when the cost of navigating accumulated knowledge falls substantially? Does the burden of specialization change? Which parts of scientific reasoning can be offloaded without losing the structures that make the result understandable? How should machine-generated proofs, hypotheses, experiments, or scientific explanations be interpreted and verified?</p>
-        <p>These questions also extend beyond individual researchers.</p>
-        <p>Research groups, laboratories, universities, funding structures, publication systems, and scientific collaborations were developed around particular assumptions about how knowledge is produced and how difficult different forms of intellectual work are. Increasingly capable AI systems may alter some of those assumptions.</p>
-        <p>Understanding that transition is also necessary for thinking clearly about societal integration. Terms such as <em>capability</em>, <em>safety failure</em>, and <em>risk</em> are often used at a much higher level than the technical phenomena they refer to. We are interested in understanding what particular developments actually imply before reasoning about how institutions, scientific infrastructure, or policy should respond to them.</p>
-        <p>In this sense, policy is downstream of understanding the systems and the structures into which they are being introduced.</p>
-        <p class="research-flow reveal"><span class="step"><span class="term">AI capability</span></span> <span class="step"><span class="arrow">→</span> <span class="term">scientific practice</span></span> <span class="step"><span class="arrow">→</span> <span class="term">knowledge production</span></span> <span class="step"><span class="arrow">→</span> <span class="term">research infrastructure</span></span> <span class="step"><span class="arrow">→</span> <span class="term">institutional response</span></span></p>
+      <section id="information-computation-and-interaction" aria-labelledby="information-computation-and-interaction-heading">
+        <h2 id="information-computation-and-interaction-heading"><span class="programme-number">03.</span> Information, Computation, and Interaction</h2>
+      <p>We study the mathematical properties of systems that compute, communicate, and interact with one another.</p>
+
+      <p>Some of the questions concern the limits of computation and communication themselves. Others arise when several systems are composed together, particularly when their individual properties do not carry over straightforwardly to the resulting system.</p>
+
+      <p>We are interested in information flow, communication constraints, partial observability, distributed computation, and the formal analysis of interacting systems.</p>
+
+      <p>Theoretical tools include information theory, automata theory, computability and complexity theory, formal verification, probability, and mathematical models of distributed and interactive computation.</p>
+
+      <p>One direction within this programme concerns multi-agent systems, where communication, coordination, and information sharing introduce questions that cannot always be answered by analysing agents individually.</p>
+
+      <p>We are also interested in translating formal results into protocols, verification methods, and system designs whose properties can be understood mathematically.</p>
       </section>
 
-      <section id="mathematical-structures-across-physical-and-intelligent-systems" aria-labelledby="mathematical-structures-across-physical-and-intelligent-systems-heading">
-        <h2 id="mathematical-structures-across-physical-and-intelligent-systems-heading">Mathematical Structures Across Physical and Intelligent Systems</h2>
-        <p>Many difficult problems appear in a particular mathematical representation long before we know whether that representation is the right level at which to understand them.</p>
-        <p>One of the recurring strengths of mathematics is its ability to move away from the details of a particular realization and ask what structure is actually being preserved.</p>
-        <p>We are interested in using that perspective across both physical and intelligent systems.</p>
-        <p>In physics, different theories may describe different regimes using mathematical languages that make their local behaviour clear while making their relationship to another theory much harder to see. Instead of beginning only by matching individual components, one can ask what mathematical structure a relationship between the theories would itself have to satisfy.</p>
-        <p>Similar questions appear in intelligent systems. Different architectures, learning systems, interaction protocols, or representations may look unrelated at the implementation level while sharing deeper structural properties.</p>
-        <p>The programme is therefore concerned with mathematical structures that make relationships between complicated systems easier to state, compare, and reason about.</p>
-        <p>Depending on the problem, this may involve geometry, topology, dynamical systems, probability, algebra, category theory, type theory, mathematical physics, or other structural mathematics.</p>
-        <p>The central motivation is not abstraction for its own sake. It is the possibility that the right mathematical formulation can reveal constraints and relationships that remain hidden when a problem is studied only through its individual components.</p>
-        <p class="research-flow reveal"><span class="step"><span class="term">particular realizations</span></span> <span class="step"><span class="arrow">→</span> <span class="term">structural relations</span></span> <span class="step"><span class="arrow">→</span> <span class="term">mathematical constraints</span></span> <span class="step"><span class="arrow">→</span> <span class="term">new realizations</span></span></p>
+      <section id="decision-games-and-collective-behaviour" aria-labelledby="decision-games-and-collective-behaviour-heading">
+        <h2 id="decision-games-and-collective-behaviour-heading"><span class="programme-number">04.</span> Decision, Games, and Collective Behaviour</h2>
+      <p>A system's ability to perform an action does not necessarily tell us whether it will choose to perform it.</p>
+
+      <p>This distinction motivates several questions about decision-making, rationality, incentives, and strategic interaction.</p>
+
+      <p>We are interested in how decisions depend on the information available to an individual or system, the objectives being pursued, and the behaviour expected from other participants. When several decision-makers interact, we also want to understand how their individual choices give rise to collective outcomes.</p>
+
+      <p>This programme brings together decision theory, game theory, Bayesian and epistemic games, mechanism design, social choice theory, bounded rationality, and causal approaches to decision-making.</p>
+
+      <p>The resulting questions extend across individual decision-making, strategic communication, coordination, and the design of mechanisms for systems involving several interacting participants.</p>
+
+      <p>We are particularly interested in identifying mathematical structures that explain these behaviours across different settings, rather than constructing models tied to one particular application.</p>
+      </section>
+
+      <section id="mathematical-foundations-of-physical-theories" aria-labelledby="mathematical-foundations-of-physical-theories-heading">
+        <h2 id="mathematical-foundations-of-physical-theories-heading"><span class="programme-number">05.</span> Mathematical Foundations of Physical Theories</h2>
+      <p>We are interested in theoretical and mathematical physics, particularly questions concerning the mathematical structures underlying physical theories and the relationships between different descriptions of physical phenomena.</p>
+
+      <p>One direction concerns quantum theory and its mathematical foundations, including Hilbert-space formulations, operator-theoretic approaches, and the algebraic structures used to describe quantum systems.</p>
+
+      <p>Another concerns spacetime and gravitation, where differential geometry, causal structure, and the mathematical formulation of general relativity provide several interesting problems.</p>
+
+      <p>We are also interested in statistical mechanics, emergence, and the relationships between descriptions of physical systems at different scales. Questions about coarse-graining, effective theories, and the preservation of structure across different levels of description are particularly relevant here.</p>
+
+      <p>The programme encompasses investigations within individual physical theories as well as mathematical approaches to relating them.</p>
+
+      <p>Our interests include geometry, topology, functional analysis, operator algebras, dynamical systems, and other areas of mathematics that arise naturally in theoretical physics.</p>
+      </section>
+
+      <section id="dynamics-of-knowledge-and-scientific-practice" aria-labelledby="dynamics-of-knowledge-and-scientific-practice-heading">
+        <h2 id="dynamics-of-knowledge-and-scientific-practice-heading"><span class="programme-number">06.</span> Dynamics of Knowledge and Scientific Practice</h2>
+      <p>This programme concerns how scientific knowledge develops, accumulates, and moves between individuals, research communities, and institutions.</p>
+
+      <p>As scientific knowledge grows, the amount of existing work required to contribute to a particular subject can also increase. At the same time, new methods of communication, representation, and computation can change how that knowledge is accessed, organized, and used.</p>
+
+      <p>We are interested in studying these relationships more formally.</p>
+
+      <p>This includes questions about the accumulation and distribution of knowledge, the effects of specialization, the organization of scientific collaborations, and the ways different communication structures influence collective understanding and discovery.</p>
+
+      <p>Relevant approaches include social epistemology, information theory, network theory, dynamical systems, mathematical models of collective knowledge, and empirical studies of scientific practice.</p>
+
+      <p>Another direction concerns how changes in scientific capabilities affect the institutions through which research is conducted. This includes research infrastructure, mechanisms for collaboration, the verification and communication of scientific results, and the development of policies informed by a better understanding of these processes.</p>
+
+      <p>We are interested in both the mathematical and empirical investigation of these questions and their consequences for how scientific research can be organized.</p>
       </section>
     </div>
   </main>
